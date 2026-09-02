@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"
+     role="img" aria-label="Epsilon">
+  <!--
+    Epsilon badge logo - the brand mark in charcoal on a deep off-white tile.
+    Used in the navigation bar, favicon, auth pages, footer and invoice.
+    See logo-mark.svg for the plain mark on its own.
+  -->
+  <defs>
+    <linearGradient id="epsBg" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#F0E8DA"/>
+      <stop offset="0.55" stop-color="#E4DAC5"/>
+      <stop offset="1" stop-color="#D8CCB4"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#epsBg)"/>
+  <!-- soft outline so the tile still reads against a white navigation bar -->
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="16.4" fill="none"
+        stroke="#1F2328" stroke-opacity="0.12" stroke-width="1.5"/>
+
+  <!-- brand mark, drawn in the 100x100 space and scaled to fit the tile -->
+  <g transform="translate(9.5 9.5) scale(0.45)">
+    <g fill="none" stroke="#1F2328" stroke-width="8" stroke-linecap="butt">
+      <path d="M21.5 26.5 A 18 22.7 0 0 1 21.5 71.9"/>
+      <path d="M78.5 26.5 A 18 22.7 0 0 0 78.5 71.9"/>
+    </g>
+    <rect x="46" y="3" width="8" height="94" fill="#1F2328"/>
+    <rect x="4.8" y="46" width="90.4" height="8" fill="#1F2328"/>
+  </g>
+</svg>

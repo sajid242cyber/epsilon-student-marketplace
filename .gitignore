@@ -1,0 +1,24 @@
+# Secrets / environment
+.env
+
+# Local development / IDE
+.claude/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs / temporary files
+*.log
+*.tmp
+*.bak
+
+# Runtime uploaded files
+assets/uploads/products/*
+assets/uploads/profiles/*
+
+# Keep upload directories in Git
+!assets/uploads/products/.gitkeep
+!assets/uploads/profiles/.gitkeep

@@ -1,0 +1,879 @@
+/* =========================================================
+   Epsilon - Custom Styles
+   Second-Hand Book/Gadget Exchange for Students
+   ========================================================= */
+
+:root {
+  /*
+   * Two brand colours only, used the opposite way round depending on the
+   * surface: cream sits on the dark navigation bar, warm dark sits on the
+   * light pages. That keeps buttons readable everywhere.
+   */
+  --brand-primary: #26221d;        /* warm dark - buttons on light pages */
+  --brand-primary-dark: #14110d;   /* pressed / hover state */
+  --brand-cream: #e4dac5;          /* logo tile - buttons on the dark bar */
+  --brand-cream-light: #f2ece0;    /* text on dark surfaces */
+
+  --brand-bg: #f4f2ee;             /* warm off-white page */
+  --brand-card-bg: #ffffff;
+  --brand-border: #e5e1d8;
+  --brand-text-muted: #6f6a60;
+  --brand-chip-bg: #efe9dc;        /* condition pills, active menu row */
+  --brand-hatch: #e8e3d7;          /* the "no photo" panel */
+
+  /* Titles and prices use a serif to separate them from interface text.
+     All of these ship with Windows and macOS, so nothing is downloaded. */
+  --brand-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+
+body {
+  background-color: var(--brand-bg);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1c1e21;
+}
+
+/* The page content sits in a fixed-width column with air on both sides,
+   matching the floating navigation bar above it. */
+.cx-page {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--brand-primary);
+}
+
+a:hover {
+  color: var(--brand-primary-dark);
+}
+
+/* Inline links inside sentences get an underline so they are still
+   obviously clickable now that they are no longer blue. */
+p a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/*
+ * Bootstrap's "primary" utilities are blue out of the box. Point them at the
+ * brand colour so prices, stat numbers and badges match the rest of the site.
+ */
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+.bg-primary {
+  background-color: var(--brand-primary) !important;
+}
+
+/* ---------------------------------------------------------
+   Navbar
+   --------------------------------------------------------- */
+/* <nav> itself is only a transparent tray; the dark rounded block inside it is
+   what the visitor sees floating on the page. */
+.cx-navbar {
+  background-color: var(--brand-bg);
+  padding: 14px 18px 8px;
+}
+
+.cx-navbar-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: var(--brand-primary);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(38, 34, 29, 0.14);
+}
+
+.cx-navbar .navbar-brand {
+  color: var(--brand-cream-light);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Everything inside the dark bar switches to the light cream tones */
+.cx-navbar .brand-word,
+.cx-navbar .nav-link,
+.cx-navbar .dropdown-toggle {
+  color: var(--brand-cream-light);
+}
+
+.cx-navbar .nav-link:hover,
+.cx-navbar .dropdown-toggle:hover {
+  color: #ffffff;
+}
+
+/* Bootstrap's hamburger icon is drawn dark by default */
+.cx-navbar .navbar-toggler {
+  border-color: rgba(242, 236, 224, 0.35);
+}
+
+.cx-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f2ece0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.cx-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(242, 236, 224, 0.25);
+}
+
+/* ---------------------------------------------------------
+   Brand mark
+   --------------------------------------------------------- */
+.brand-logo {
+  border-radius: 10px;
+  transition: transform 0.18s ease;
+}
+
+.navbar-brand:hover .brand-logo {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+/* The Epsilon wordmark. Dark by default (footer, invoice), and overridden
+   to cream inside the dark navigation bar above. */
+.brand-word {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1f2328;
+}
+
+/* Search box on the dark bar */
+.cx-navbar .input-group-text,
+.cx-navbar .form-control {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--brand-cream-light);
+}
+
+.cx-navbar .input-group {
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.cx-navbar .input-group-text {
+  color: rgba(242, 236, 224, 0.65);
+}
+
+.cx-navbar .form-control::placeholder {
+  color: rgba(242, 236, 224, 0.55);
+}
+
+.cx-navbar .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.cx-navbar .nav-icon-link {
+  color: var(--brand-cream);
+  font-size: 1.3rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.10);
+  position: relative;
+}
+
+.cx-navbar .nav-icon-link:hover {
+  background-color: rgba(255, 255, 255, 0.20);
+  color: #ffffff;
+}
+
+.cx-navbar .badge-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 0.65rem;
+}
+
+/* "Admin" chip next to the logo - a dark chip would vanish on the dark bar */
+.admin-badge {
+  background-color: var(--brand-cream);
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+/* Logout sits on the dark bar, so it needs a lighter red than Bootstrap's */
+.cx-navbar .btn-outline-danger {
+  border-color: rgba(255, 138, 128, 0.6);
+  color: #ff8a80;
+}
+
+.cx-navbar .btn-outline-danger:hover {
+  background-color: #ff5c50;
+  border-color: #ff5c50;
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   Layout - Left / Right Sidebars
+   --------------------------------------------------------- */
+/* Both sidebars stay put while the feed scrolls past them.
+   top clears the sticky navbar; if a sidebar is ever taller than the screen it
+   scrolls inside itself rather than hiding its lower half. */
+.cx-sidebar {
+  position: sticky;
+  top: 73px;                          /* 61px navbar + a small gap */
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* keep the inner scrollbar out of the way until it is needed */
+.cx-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cx-sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+}
+
+.cx-sidebar .list-group-item {
+  border: none;
+  background: transparent;
+  padding: 0.6rem 0.5rem;
+  border-radius: 8px;
+  color: #1c1e21;
+}
+
+.cx-sidebar .list-group-item:hover,
+.cx-sidebar .list-group-item.active {
+  background-color: #f2ece0;
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.cx-sidebar-title {
+  font-family: var(--brand-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1c1e21;
+  margin-bottom: 0.7rem;
+}
+
+/* ---- category menu with a count on the right ---- */
+.cx-catlist {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cx-catlink {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  color: #37332c;
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+.cx-catlink i {
+  font-size: 0.95rem;
+  color: var(--brand-text-muted);
+  flex-shrink: 0;
+}
+
+.cx-catname {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cx-catcount {
+  font-size: 0.78rem;
+  color: var(--brand-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.cx-catlink:hover {
+  background-color: #f6f2ea;
+  color: var(--brand-primary);
+}
+
+.cx-catlink.active {
+  background-color: var(--brand-chip-bg);
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.cx-catlink.active i {
+  color: var(--brand-primary);
+}
+
+/* ---- price range box ---- */
+.cx-pricebox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cx-priceinput {
+  flex: 1 1 0;
+  min-width: 76px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  padding: 0.3rem 0.5rem;
+  background: #fff;
+}
+
+.cx-priceinput:focus-within {
+  border-color: var(--brand-primary);
+}
+
+.cx-currency {
+  color: var(--brand-text-muted);
+  font-size: 0.82rem;
+}
+
+.cx-priceinput input {
+  border: none;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+  font-size: 0.85rem;
+  background: transparent;
+  color: #1c1e21;
+}
+
+/* the spinner arrows crowd an already small box */
+.cx-priceinput input::-webkit-outer-spin-button,
+.cx-priceinput input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cx-priceinput input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.cx-priceapply {
+  flex: 1 1 100%;
+  border: 1px solid var(--brand-border);
+  background: #fbf9f5;
+  border-radius: 8px;
+  padding: 0.35rem;
+  font-size: 0.82rem;
+  color: #37332c;
+  cursor: pointer;
+}
+
+.cx-priceapply:hover {
+  background: var(--brand-chip-bg);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+/* ---- right hand call to action ---- */
+.cx-cta {
+  text-align: center;
+}
+
+.cx-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--brand-border);
+  color: var(--brand-primary);
+  margin-bottom: 0.6rem;
+}
+
+.cx-cta-text {
+  font-size: 0.86rem;
+  color: #37332c;
+  margin-bottom: 0.85rem;
+}
+
+.cx-tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--brand-text-muted);
+}
+
+.cx-tips li {
+  position: relative;
+  padding-left: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.cx-tips li::before {
+  content: "\2013";           /* en dash, matching the mockup */
+  position: absolute;
+  left: 0;
+  color: #b9b1a2;
+}
+
+.cx-tips li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   Feed heading + sort pills
+   --------------------------------------------------------- */
+.cx-feed-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0.9rem;
+}
+
+.cx-feed-sub {
+  font-size: 0.8rem;
+  color: var(--brand-text-muted);
+  margin-top: 2px;
+}
+
+.cx-sortrow {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cx-sortpill {
+  border: 1px solid var(--brand-border);
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--brand-text-muted);
+  white-space: nowrap;
+}
+
+.cx-sortpill:hover {
+  color: var(--brand-primary);
+  border-color: #cfc8ba;
+}
+
+.cx-sortpill.active {
+  background: #ffffff;
+  border-color: var(--brand-border);
+  color: var(--brand-primary);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(38, 34, 29, 0.07);
+}
+
+.cx-sidebar-card {
+  background: var(--brand-card-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------------
+   Product Cards (Marketplace Feed)
+   --------------------------------------------------------- */
+.product-card {
+  background: var(--brand-card-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  /* Three to a row, but a card never grows past this - on a wide screen the
+     column simply gets more air around the card instead of a huge tile. */
+  max-width: 258px;
+  margin-inline: auto;
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 14px rgba(38, 34, 29, 0.10);
+  transform: translateY(-2px);
+}
+
+/* holds the photo plus the flag and heart that sit on top of it */
+.product-media {
+  position: relative;
+}
+
+.product-card .product-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background-color: var(--brand-hatch);
+  overflow: hidden;
+}
+
+.product-card .product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Listings with no photo get a hatched panel and a word saying what is missing,
+   so an empty grid still reads as a grid rather than as broken images. */
+.product-img-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: #a89f8d;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 6px,
+    rgba(255, 255, 255, 0.55) 6px 12px
+  );
+}
+
+/* "Reserved" corner flag */
+.product-flag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(38, 34, 29, 0.85);
+  color: var(--brand-cream-light);
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* heart, top right of the photo */
+.product-save {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #37332c;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.product-card:hover .product-save,
+.product-save:focus {
+  opacity: 1;
+}
+
+.product-save:hover {
+  background: #ffffff;
+  color: #c0392b;
+}
+
+.product-card .card-body {
+  padding: 0.6rem 0.65rem 0.65rem;
+}
+
+.product-card .product-title {
+  font-family: var(--brand-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1c1e21;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+  min-height: 2.18rem;              /* keeps one- and two-line titles aligned */
+}
+
+.product-card .product-title:hover {
+  color: var(--brand-primary-dark);
+}
+
+/* Chip and meta stay on one line whatever the condition is called, so the price
+   below it lands at the same height on every card in the row. */
+.product-tagrow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+  margin-bottom: 0.45rem;
+  min-width: 0;
+}
+
+/* condition pill */
+.cx-chip {
+  background: var(--brand-chip-bg);
+  color: #4a443a;
+  font-size: 0.7rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.product-card .product-meta {
+  font-size: 0.72rem;
+  color: var(--brand-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.product-card .product-price {
+  font-family: var(--brand-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1c1e21;
+}
+
+.product-seller {
+  font-size: 0.72rem;
+  color: var(--brand-text-muted);
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.product-rating {
+  margin-left: auto;
+  color: #b8860b;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--brand-serif);
+  font-weight: 700;
+}
+
+.product-card .card-footer {
+  background: var(--brand-card-bg);
+  border-top: 1px solid var(--brand-border);
+  padding: 0.5rem 0.75rem;
+}
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+/*
+ * On the light pages the buttons are warm dark with cream lettering.
+ * Inside the dark navigation bar they flip (see the override below), so the
+ * site only ever uses these same two brand colours.
+ */
+.btn-brand {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--brand-cream-light);
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+  background-color: var(--brand-primary-dark);
+  border-color: var(--brand-primary-dark);
+  color: #ffffff;
+}
+
+.btn-outline-brand {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.btn-outline-brand:hover,
+.btn-outline-brand:focus {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--brand-cream-light);
+}
+
+/*
+ * Payment method picker.
+ *
+ * Bootstrap's .btn-check only restyles the chosen label through variables our
+ * custom .btn-outline-brand never sets, so every option looked identical and
+ * you could not tell which one you had picked. These rules make the selected
+ * one obvious: filled in, thicker border and a tick on the right.
+ */
+.payment-option {
+  border-width: 2px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.payment-option .payment-tick {
+  visibility: hidden;
+  font-size: 1.15rem;
+}
+
+.payment-option .payment-hint {
+  color: var(--brand-text-muted);
+}
+
+.btn-check:checked + .payment-option {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--brand-cream-light);
+  box-shadow: 0 2px 8px rgba(38, 34, 29, 0.25);
+}
+
+.btn-check:checked + .payment-option .payment-tick {
+  visibility: visible;
+}
+
+/* the hint line has to lighten too, or it disappears on the dark fill */
+.btn-check:checked + .payment-option .payment-hint {
+  color: rgba(242, 236, 224, 0.75);
+}
+
+.btn-check:focus-visible + .payment-option {
+  box-shadow: 0 0 0 0.25rem rgba(38, 34, 29, 0.25);
+}
+
+/* Cash on Delivery is the only method, so it is always shown as chosen */
+.payment-only {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--brand-cream-light);
+  cursor: default;
+}
+
+.payment-only .payment-tick {
+  visibility: visible;
+}
+
+.payment-only .payment-hint {
+  color: rgba(242, 236, 224, 0.75);
+}
+
+/* Flipped versions for the dark navigation bar */
+.cx-navbar .btn-brand {
+  background-color: var(--brand-cream);
+  border-color: var(--brand-cream);
+  color: var(--brand-primary);
+}
+
+.cx-navbar .btn-brand:hover,
+.cx-navbar .btn-brand:focus {
+  background-color: #f0e8da;
+  border-color: #f0e8da;
+  color: var(--brand-primary);
+}
+
+.cx-navbar .btn-outline-brand {
+  border-color: rgba(242, 236, 224, 0.55);
+  color: var(--brand-cream-light);
+}
+
+.cx-navbar .btn-outline-brand:hover,
+.cx-navbar .btn-outline-brand:focus {
+  background-color: var(--brand-cream);
+  border-color: var(--brand-cream);
+  color: var(--brand-primary);
+}
+
+/* ---------------------------------------------------------
+   Auth Pages
+   --------------------------------------------------------- */
+.auth-card {
+  background: var(--brand-card-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/*
+ * Edge and Internet Explorer draw their own eye / cross inside password
+ * boxes. We already provide a show-hide button, so hide theirs - otherwise
+ * the field shows two eyes side by side.
+ */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Small heading that splits a long form into readable groups */
+.form-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-text-muted);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--brand-border);
+}
+
+/* ---------------------------------------------------------
+   Utility
+   --------------------------------------------------------- */
+.rating-stars {
+  color: #f5a623;
+  font-size: 0.85rem;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--brand-text-muted);
+}
+
+/* Ensure no horizontal scroll anywhere.
+
+   'clip' rather than 'hidden' on purpose. Setting overflow-x: hidden forces the
+   browser to compute overflow-y as auto, which turns <html>/<body> into a scroll
+   container - and a sticky sidebar inside one of those stops sticking to the
+   viewport. 'clip' cuts off the overflow without creating that scroll container,
+   so .cx-sidebar keeps working. */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;   /* fallback for browsers without 'clip' */
+  overflow-x: clip;     /* modern browsers use this and keep sticky working */
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Responsive tweaks
+   --------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .cx-sidebar {
+    position: static;
+  }
+
+  /* Make every button comfortable to tap on a touch screen */
+  .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Give form fields a finger-friendly height too */
+  .form-control,
+  .form-select {
+    min-height: 44px;
+  }
+
+  /* Slightly larger tap area for the icon links in the navbar */
+  .cx-navbar .nav-icon-link {
+    width: 48px;
+    height: 48px;
+  }
+}
