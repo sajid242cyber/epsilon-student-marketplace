@@ -82,31 +82,31 @@ We are **Team Beta**, a five-member student team that collaboratively designed a
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="docs/team/kamrul-hasan-kabir.png" width="150" height="150" alt="Kamrul Hasan Kabir"><br>
+<img src="kamrul-hasan-kabir.png" width="150" height="150" alt="Kamrul Hasan Kabir"><br>
 <b>Kamrul Hasan Kabir</b><br>
 <sub>242-15-782</sub>
 </td>
 
 <td align="center" width="20%">
-<img src="docs/team/prethila-bepari.png" width="150" height="150" alt="Prethila Bepari"><br>
+<img src="prethila-bepari.png" width="150" height="150" alt="Prethila Bepari"><br>
 <b>Prethila Bepari</b><br>
 <sub>242-15-472</sub>
 </td>
 
 <td align="center" width="20%">
-<img src="docs/team/adib-mahamud-sajid.png" width="150" height="150" alt="Adib Mahamud Sajid"><br>
+<img src="adib-mahamud-sajid.png" width="150" height="150" alt="Adib Mahamud Sajid"><br>
 <b>Adib Mahamud Sajid</b><br>
 <sub>242-15-137</sub>
 </td>
 
 <td align="center" width="20%">
-<img src="docs/team/shutopa-kundu.png" width="150" height="150" alt="Shutopa Kundu"><br>
+<img src="shutopa-kundu.png" width="150" height="150" alt="Shutopa Kundu"><br>
 <b>Shutopa Kundu</b><br>
 <sub>242-15-091</sub>
 </td>
 
 <td align="center" width="20%">
-<img src="docs/team/ashraful-haque.png" width="150" height="150" alt="Ashraful Haque"><br>
+<img src="ashraful-haque.png" width="150" height="150" alt="Ashraful Haque"><br>
 <b>Ashraful Haque</b><br>
 <sub>242-15-025</sub>
 </td>
